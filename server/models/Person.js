@@ -70,4 +70,12 @@ const personSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// Indexes for fast queries
+personSchema.index({ caseType: 1 });
+personSchema.index({ currentStatus: 1 });
+personSchema.index({ createdAt: -1 });
+personSchema.index({ 'flags.medicalEmergency': 1 });
+personSchema.index({ 'flags.familySeparated': 1 });
+personSchema.index({ firstName: 'text', lastName: 'text', caseId: 'text' });
+
 module.exports = mongoose.model('Person', personSchema);

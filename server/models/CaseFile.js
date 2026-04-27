@@ -42,4 +42,6 @@ const caseFileSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+caseFileSchema.index({ person: 1 });
+
 module.exports = mongoose.model('CaseFile', caseFileSchema);
